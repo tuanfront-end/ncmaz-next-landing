@@ -1,102 +1,124 @@
-import Image from "next/image";
+import Logo from "./logo";
+import Link from "next/link";
+
+const _buyLink =
+  "https://themeforest.net/item/ncmaz-blog-news-magazine-nextjs-template/44412092";
+const _demoLink = "https://ncmaz-nextjs.vercel.app/";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div className="relative isolate overflow-hidden bg-white">
+      <svg
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-gray-200"
+      >
+        <defs>
+          <pattern
+            x="50%"
+            y={-1}
+            id="0787a7c5-978c-4f66-83c7-11c213f99cb7"
+            width={200}
+            height={200}
+            patternUnits="userSpaceOnUse"
+          >
+            <path d="M.5 200V.5H200" fill="none" />
+          </pattern>
+        </defs>
+        <rect
+          fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
+          width="100%"
+          height="100%"
+          strokeWidth={0}
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+      </svg>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+      {/* Header */}
+      <header className="flex items-center justify-between mx-auto max-w-7xl sm:px-6 lg:px-8 sm:py-7 py-6 px-4">
+        <Logo />
+        <div className="flex sm:gap-7 gap-4 flex-wrap ml-auto">
+          <Link
+            className="hover:underline font-medium"
+            href={_buyLink}
             target="_blank"
-            rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            Buy Now
+          </Link>
+          <Link
+            className="hover:underline font-medium flex items-center gap-1.5"
+            href={_demoLink}
             target="_blank"
-            rel="noopener noreferrer"
           >
-            Read our docs
-          </a>
+            View Demo
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+              />
+            </svg>
+          </Link>
+        </div>
+      </header>
+
+      {/* Main */}
+      <main className="mx-auto max-w-7xl sm:px-6 lg:px-8 sm:mt-14 2xl:mt-20 mt-8 px-4">
+        <h1 className="tracking-tight text-pretty text-6xl sm:text-8xl font-bold max-w-5xl">
+          Ncmaz – Next.js & Tailwind CSS
+        </h1>
+        <div className="max-w-5xl mt-10 sm:text-3xl text-xl">
+          <p className="leading-normal">
+            Blog, News & Magazine Next.js template.
+          </p>
+          <p className="leading-normal mt-4">
+            Ncmaz is built with the latest Next.js 15 (app router), TypeScript
+            and Tailwind CSS 4. The template is carefully designed with high
+            quality.
+          </p>
+        </div>
+        <div className="sm:mt-16 2xl:mt-24 mt-10 flex-wrap flex sm:gap-4 gap-3">
+          <Link
+            href={_buyLink}
+            target="_blank"
+            className="rounded-full bg-black px-10 py-4 text-lg font-medium text-white shadow-xs hover:bg-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            Buy Now
+          </Link>
+          <Link
+            href={_demoLink}
+            target="_blank"
+            className="rounded-full bg-white px-8 py-4 text-lg font-medium text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50 flex items-center gap-1.5"
+          >
+            View Demo
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+              />
+            </svg>
+          </Link>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="mx-auto max-w-7xl sm:px-6 lg:px-8 py-8 xl:mt-20 mt-14 px-4">
+        <p className="text-sm text-zinc-500">
+          © 2025 Booliitheme, Inc. All rights reserved.
+        </p>
       </footer>
     </div>
   );
