@@ -69,7 +69,7 @@ export default function Home() {
 
       {/* Main */}
       <main className="mx-auto max-w-7xl sm:px-6 lg:px-8 sm:mt-14 2xl:mt-20 mt-8 px-4">
-        <h1 className="tracking-tight text-pretty text-6xl sm:text-8xl font-bold max-w-5xl">
+        <h1 className="tracking-tight max-w-3xl text-pretty text-5xl sm:text-7xl 2xl:text-8xl font-bold ">
           Ncmaz – Next.js & Tailwind CSS
         </h1>
         <div className="max-w-5xl mt-10 sm:text-3xl text-xl">
