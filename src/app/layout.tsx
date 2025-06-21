@@ -1,28 +1,45 @@
-import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
-import "./globals.css";
+import { type Metadata } from 'next'
+import { Inter, Lexend } from 'next/font/google'
+import clsx from 'clsx'
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
+import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
-  title: "Ncmaz - Blog, News & Magazine Next.js template",
+  title: {
+    template: '%s - Ncmaz',
+    default: 'Ncmaz - Blog, News, Magazine Next.js & Tailwind CSS template',
+  },
   description:
-    "Ncmaz - Blog, News & Magazine Next.js & Tailwind CSS template. The template is multipurpose and suitable for any blog, news, or magazine website.",
-  keywords: ["blog", "news", "magazine", "nextjs", "tailwindcss"],
-};
+    'Ncmaz | Blog, News, Magazine Next.js & Tailwind CSS template – A responsive Next.js template designed for blog, news, magazine, and blog websites. Ncmaz is built with the latest Next.js 15 (app directory), TypeScript, and Tailwind CSS 4.',
+}
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
+const lexend = Lexend({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-lexend',
+})
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body className={`${manrope.className} antialiased`}>{children}</body>
+    <html
+      lang="en"
+      className={clsx(
+        'h-full scroll-smooth bg-white antialiased',
+        inter.variable,
+        lexend.variable,
+      )}
+    >
+      <body className="flex h-full flex-col">{children}</body>
     </html>
-  );
+  )
 }
