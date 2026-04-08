@@ -3,9 +3,9 @@ import { Container } from './Container'
 
 const features = [
   {
-    name: 'Built with Next.js 15',
+    name: 'Built with Next.js 16',
     description:
-      'Ncmaz is a well-structured, thoughtfully componentized Next.js 15 project, giving you a codebase that’s productive and enjoyable to work in.',
+      'Ncmaz is a well-structured, thoughtfully componentized Next.js 16 project, giving you a codebase that’s productive and enjoyable to work in.',
   },
   {
     name: 'TypeScript 5',

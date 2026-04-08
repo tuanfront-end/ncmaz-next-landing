@@ -14,33 +14,33 @@ import { demoLink } from '@/constant'
 const homeDemos = [
   {
     img: home1Img,
-    text: 'Home page 1',
+    text: 'Home 1',
     link: 'https://ncmaz-nextjs.vercel.app/',
   },
   {
     img: home2Img,
-    text: 'Home page 2',
+    text: 'Home 2',
     link: 'https://ncmaz-nextjs.vercel.app/home-2',
   },
   {
     img: home3Img,
-    text: 'Home page 3',
+    text: 'Home 3',
     link: 'https://ncmaz-nextjs.vercel.app/home-3',
   },
   {
     img: home4Img,
-    text: 'Home page 4',
+    text: 'Home 4',
     link: 'https://ncmaz-nextjs.vercel.app/home-4',
   },
 
   {
     img: home5Img,
-    text: 'Home page 5',
+    text: 'Home 5',
     link: 'https://ncmaz-nextjs.vercel.app/home-5',
   },
   {
     img: submissionImg,
-    text: 'Submission page',
+    text: 'FE Submission editor',
     link: 'https://ncmaz-nextjs.vercel.app/submission',
   },
 ]
@@ -50,7 +50,7 @@ export function SectionShowcase() {
     <section className="relative bg-slate-50 pt-20 pb-28 sm:py-32" id="demos">
       <svg
         aria-hidden="true"
-        className="absolute inset-0 right-0 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-black opacity-70"
+        className="absolute inset-0 right-0 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-gray-200 opacity-60"
       >
         <defs>
           <pattern
@@ -85,7 +85,7 @@ export function SectionShowcase() {
         <div className="mt-20 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {homeDemos.map((item, index) => (
             <div key={index} className="group relative flex flex-col">
-              <div className="relative aspect-14/16 w-full overflow-hidden rounded-3xl border-8 border-indigo-100">
+              <div className="relative aspect-14/16 w-full overflow-hidden rounded-3xl border-8 border-zinc-100">
                 <Image
                   src={item.img}
                   alt={item.text}
