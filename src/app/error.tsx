@@ -19,6 +19,7 @@ export default function Error({
   return (
     <main
       id="main"
+      tabIndex={-1}
       className="flex flex-auto flex-col items-center justify-center px-4 py-20 text-center"
     >
       <Link href="/" aria-label="Home">

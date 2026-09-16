@@ -13,7 +13,10 @@ export default function Home() {
       <GridPattern id="hero-grid" className="-z-10 opacity-70" />
       <Header />
 
-      <main id="main">
+      {/* tabIndex -1 so the skip link actually moves focus here. Chrome moves
+          the sequential focus starting point on a fragment jump without it;
+          Safari and screen-reader virtual cursors do not. */}
+      <main id="main" tabIndex={-1}>
         <Hero />
         <SectionShowcase />
         <SectionIncluded />
