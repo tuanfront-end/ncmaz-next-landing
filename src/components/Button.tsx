@@ -8,6 +8,13 @@ const baseStyles = {
     'group inline-flex ring-1 items-center justify-center rounded-full py-2.5 sm:px-6 px-4 text-base font-medium',
 }
 
+// Contrast measured against the background each label actually lands on, not
+// against white. Everything here clears AA at rest; two hover/active states sit
+// below 4.5:1 and are kept on purpose, noted so the next reader meets a
+// decision rather than an oversight:
+//   blue hover    slate-100 on indigo-500  4.17:1  (rest is 6.44:1)
+//   white active  slate-600 on indigo-200  5.07:1
+//   white outline slate-400 on white       2.63:1  (variant is currently unused)
 const variantStyles = {
   solid: {
     slate:

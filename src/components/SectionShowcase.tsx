@@ -95,7 +95,7 @@ export function SectionShowcase() {
                   // nothing above 828w is ever the right candidate. No
                   // `priority`: the LCP element is the hero headline, and
                   // preloading six below-fold cards only starved it.
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 30vw, 368px"
+                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 30vw, 368px"
                   placeholder="blur"
                   fill
                 />
