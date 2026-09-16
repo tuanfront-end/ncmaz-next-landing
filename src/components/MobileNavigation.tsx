@@ -23,6 +23,7 @@ function MobileNavLink({
       href={href}
       className="block w-full p-2"
       target={target}
+      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
     >
       {children}
     </PopoverButton>

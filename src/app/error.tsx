@@ -17,7 +17,10 @@ export default function Error({
   reset: () => void
 }) {
   return (
-    <main className="flex flex-auto flex-col items-center justify-center px-4 py-20 text-center">
+    <main
+      id="main"
+      className="flex flex-auto flex-col items-center justify-center px-4 py-20 text-center"
+    >
       <Link href="/" aria-label="Home">
         <Logo className="h-10 w-auto" />
       </Link>
