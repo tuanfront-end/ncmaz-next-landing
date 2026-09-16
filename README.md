@@ -18,6 +18,20 @@ npm run dev
 
 Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
 
+## Before you deploy
+
+Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SITE_URL` to the domain
+you are deploying to:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
+
+It is read at build time and written into the canonical tag, the Open Graph and
+Twitter URLs, `sitemap.xml` and `robots.txt`. On Vercel it is optional — the
+project's production URL is used when the variable is not set. Anywhere else,
+building without it falls back to `http://localhost:3000` and prints a warning.
+
 ## Customizing
 
 You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
