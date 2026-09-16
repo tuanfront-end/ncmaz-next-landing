@@ -111,9 +111,12 @@ export function SectionShowcase() {
                 target="_blank"
                 rel="noopener noreferrer"
                 href={item.link}
-                key={index}
                 className="absolute inset-0"
-              />
+              >
+                {/* The heading above is a sibling of this link, so it cannot
+                    name it. Without this the card is an unlabelled link. */}
+                <span className="sr-only">View the {item.text} demo</span>
+              </Link>
             </div>
           ))}
         </div>
