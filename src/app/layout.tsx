@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: 'Ncmaz - Blog, News, Magazine Next.js & Tailwind CSS template',
   },
   description:
-    'Ncmaz | Blog, News, Magazine Next.js & Tailwind CSS template – A responsive Next.js template designed for blog, news, magazine, and blog websites. Ncmaz is built with the latest Next.js 15 (app directory), TypeScript, and Tailwind CSS 4.',
+    'Ncmaz | Blog, News, Magazine Next.js & Tailwind CSS template – A responsive Next.js template designed for blog, news and magazine websites. Ncmaz is built with the latest Next.js 16 (app directory), TypeScript, and Tailwind CSS 4.',
 }
 
 const inter = Inter({
