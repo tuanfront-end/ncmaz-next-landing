@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Container } from '@/components/Container'
+import { GridPattern } from '@/components/GridPattern'
 import { ArrowRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/solid'
 import home1Img from '@/images/home/home-1.png'
 import home2Img from '@/images/home/home-2.png'
@@ -48,29 +49,7 @@ const homeDemos = [
 export function SectionShowcase() {
   return (
     <section className="relative bg-slate-50 pt-20 pb-28 sm:py-32" id="demos">
-      <svg
-        aria-hidden="true"
-        className="absolute inset-0 right-0 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-gray-200 opacity-60"
-      >
-        <defs>
-          <pattern
-            x="50%"
-            y={-1}
-            id="0787a7c5-978c-4f66-83c7-11c213f99cb7"
-            width={200}
-            height={200}
-            patternUnits="userSpaceOnUse"
-          >
-            <path d="M.5 200V.5H200" fill="none" />
-          </pattern>
-        </defs>
-        <rect
-          fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
-          width="100%"
-          height="100%"
-          strokeWidth={0}
-        />
-      </svg>
+      <GridPattern id="showcase-grid" className="opacity-60" />
 
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
