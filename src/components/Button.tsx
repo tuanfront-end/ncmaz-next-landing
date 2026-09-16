@@ -55,9 +55,15 @@ export function Button({ className, ...props }: ButtonProps) {
     className,
   )
 
-  return typeof props.href === 'undefined' ? (
-    <button className={className} {...props} />
+  // `variant` and `color` pick the styles above; neither is an HTML attribute,
+  // so strip them before spreading onto the element.
+  const { variant, color, ...domProps } = props
+  void variant
+  void color
+
+  return typeof domProps.href === 'undefined' ? (
+    <button className={className} {...domProps} />
   ) : (
-    <Link className={className} {...props} />
+    <Link className={className} {...domProps} />
   )
 }
