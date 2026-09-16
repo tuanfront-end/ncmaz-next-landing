@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Container } from '@/components/Container'
+import { GridPattern } from '@/components/GridPattern'
 import { ArrowRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/solid'
 import home1Img from '@/images/home/home-1.png'
 import home2Img from '@/images/home/home-2.png'
@@ -48,29 +49,7 @@ const homeDemos = [
 export function SectionShowcase() {
   return (
     <section className="relative bg-slate-50 pt-20 pb-28 sm:py-32" id="demos">
-      <svg
-        aria-hidden="true"
-        className="absolute inset-0 right-0 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-gray-200 opacity-60"
-      >
-        <defs>
-          <pattern
-            x="50%"
-            y={-1}
-            id="0787a7c5-978c-4f66-83c7-11c213f99cb7"
-            width={200}
-            height={200}
-            patternUnits="userSpaceOnUse"
-          >
-            <path d="M.5 200V.5H200" fill="none" />
-          </pattern>
-        </defs>
-        <rect
-          fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
-          width="100%"
-          height="100%"
-          strokeWidth={0}
-        />
-      </svg>
+      <GridPattern id="showcase-grid" className="opacity-60" />
 
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
@@ -89,13 +68,18 @@ export function SectionShowcase() {
                 <Image
                   src={item.img}
                   alt={item.text}
-                  className="rounded-xl object-cover object-top brightness-100 transition-all duration-300 group-hover:brightness-75"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                  className="rounded-xl object-cover object-top brightness-100 transition-[filter] duration-300 group-hover:brightness-75 motion-reduce:transition-none"
+                  // The grid is 1/2/3 columns at 640/1024, and `max-w-7xl`
+                  // freezes the card at 368px once the container caps out, so
+                  // nothing above 828w is ever the right candidate. No
+                  // `priority`: the LCP element is the hero headline, and
+                  // preloading six below-fold cards only starved it.
+                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 30vw, 368px"
+                  placeholder="blur"
                   fill
-                  priority
                 />
 
-                <div className="absolute top-1/2 left-1/2 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-900 text-slate-100 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                <div className="absolute top-1/2 left-1/2 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-900 text-slate-100 opacity-0 transition-opacity duration-200 group-hover:opacity-100 motion-reduce:transition-none">
                   <ArrowUpRightIcon className="h-6 w-6" />
                 </div>
               </div>
@@ -111,9 +95,12 @@ export function SectionShowcase() {
                 target="_blank"
                 rel="noopener noreferrer"
                 href={item.link}
-                key={index}
                 className="absolute inset-0"
-              />
+              >
+                {/* The heading above is a sibling of this link, so it cannot
+                    name it. Without this the card is an unlabelled link. */}
+                <span className="sr-only">View the {item.text} demo</span>
+              </Link>
             </div>
           ))}
         </div>

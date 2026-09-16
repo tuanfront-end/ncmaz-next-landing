@@ -5,9 +5,16 @@ const baseStyles = {
   solid:
     'group inline-flex items-center justify-center rounded-full py-2.5 sm:px-6 px-4 text-base font-semibold focus-visible:outline-2 focus-visible:outline-offset-2',
   outline:
-    'group inline-flex ring-1 items-center justify-center rounded-full py-2.5 sm:px-6 px-4 text-base font-medium',
+    'group inline-flex ring-1 items-center justify-center rounded-full py-2.5 sm:px-6 px-4 text-base font-medium focus-visible:outline-2 focus-visible:outline-offset-2',
 }
 
+// Contrast measured against the background each label actually lands on, not
+// against white. Everything here clears AA at rest; two hover/active states sit
+// below 4.5:1 and are kept on purpose, noted so the next reader meets a
+// decision rather than an oversight:
+//   blue hover    slate-100 on indigo-500  4.17:1  (rest is 6.44:1)
+//   white active  slate-600 on indigo-200  5.07:1
+//   white outline slate-400 on white       2.63:1  (variant is currently unused)
 const variantStyles = {
   solid: {
     slate:
@@ -18,7 +25,7 @@ const variantStyles = {
   },
   outline: {
     slate:
-      'ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-indigo-600 focus-visible:ring-slate-300 bg-white',
+      'ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-indigo-600 bg-white',
     white:
       'ring-slate-700 text-white hover:ring-slate-500 active:ring-slate-700 active:text-slate-400 focus-visible:outline-white',
   },
@@ -55,9 +62,19 @@ export function Button({ className, ...props }: ButtonProps) {
     className,
   )
 
-  return typeof props.href === 'undefined' ? (
-    <button className={className} {...props} />
-  ) : (
-    <Link className={className} {...props} />
-  )
+  // `variant` and `color` pick the styles above; neither is an HTML attribute,
+  // so strip them before spreading onto the element.
+  const { variant, color, ...domProps } = props
+  void variant
+  void color
+
+  if (typeof domProps.href === 'undefined') {
+    return <button className={className} {...domProps} />
+  }
+
+  // Defaulted before the spread so an explicit `rel` still wins. Set here
+  // rather than at each call site, so a new outbound button cannot forget it.
+  const rel = domProps.target === '_blank' ? 'noopener noreferrer' : undefined
+
+  return <Link className={className} rel={rel} {...domProps} />
 }
