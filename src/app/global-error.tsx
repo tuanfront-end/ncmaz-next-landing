@@ -1,21 +1,6 @@
 'use client'
 
-import { Inter, Lexend } from 'next/font/google'
-import clsx from 'clsx'
-
 import '@/styles/tailwind.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
-
-const lexend = Lexend({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-lexend',
-})
 
 // This replaces the root layout, so it repeats the document shell and the font
 // pipeline rather than importing them. It also deliberately renders no shared
@@ -30,16 +15,18 @@ export default function GlobalError({
   return (
     <html
       lang="en"
-      className={clsx(
-        'h-full bg-white antialiased',
-        inter.variable,
-        lexend.variable,
-      )}
+      className="h-full bg-white antialiased"
+      style={{
+        // The root layout is what failed, so the font pipeline it sets up
+        // cannot be assumed. Name a stack here instead of loading a webfont.
+        fontFamily:
+          'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
+      }}
     >
       <body className="flex h-full flex-col">
         <main className="flex flex-auto flex-col items-center justify-center px-4 py-20 text-center">
           <p className="text-sm font-medium text-gray-700">500</p>
-          <h1 className="mt-3 font-display text-2xl font-semibold text-gray-900 sm:text-3xl">
+          <h1 className="mt-3 text-2xl font-semibold text-gray-900 sm:text-3xl">
             This page could not load
           </h1>
           <p className="mt-4 max-w-md text-sm text-gray-700">
