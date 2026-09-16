@@ -89,13 +89,18 @@ export function SectionShowcase() {
                 <Image
                   src={item.img}
                   alt={item.text}
-                  className="rounded-xl object-cover object-top brightness-100 transition-all duration-300 group-hover:brightness-75"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                  className="rounded-xl object-cover object-top brightness-100 transition-[filter] duration-300 group-hover:brightness-75 motion-reduce:transition-none"
+                  // The grid is 1/2/3 columns at 640/1024, and `max-w-7xl`
+                  // freezes the card at 368px once the container caps out, so
+                  // nothing above 828w is ever the right candidate. No
+                  // `priority`: the LCP element is the hero headline, and
+                  // preloading six below-fold cards only starved it.
+                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 30vw, 368px"
+                  placeholder="blur"
                   fill
-                  priority
                 />
 
-                <div className="absolute top-1/2 left-1/2 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-900 text-slate-100 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                <div className="absolute top-1/2 left-1/2 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-900 text-slate-100 opacity-0 transition-opacity duration-200 group-hover:opacity-100 motion-reduce:transition-none">
                   <ArrowUpRightIcon className="h-6 w-6" />
                 </div>
               </div>

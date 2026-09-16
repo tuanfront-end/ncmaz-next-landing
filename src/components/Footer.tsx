@@ -6,6 +6,9 @@ export function Footer() {
     <footer className="bg-slate-50">
       <Container>
         <div className="flex flex-col items-center py-10 sm:flex-row-reverse sm:justify-between">
+          {/* Both links are deliberately left at "#" until real profile URLs
+              exist. They are inert: clicking one changes nothing. Point them at
+              the real accounts, or drop the pair, before the next release. */}
           <div className="flex gap-x-6">
             <Link href="#" className="group" aria-label="BooliiTheme on X">
               <svg
